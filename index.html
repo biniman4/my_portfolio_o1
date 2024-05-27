@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Dashboard</title>
+  <style type="text/css">
+
+    input {
+      padding: 6px 12px 6px 12px;
+      border: 1px solid #665544;
+      color: #ffffff;
+    }
+
+
+    p {
+      text-decoration: blink;
+      text-shadow: 1px 1px 0px #000000;
+    }
+    input.submit:hover {
+      background-color: #665544;
+    }
+    input.submit:active {
+      background-color: chocolate;
+    }
+    input.text {
+      color: #cccccc;
+    }
+    input.text:focus {
+      color: #665544;
+    }
+    p {
+      width: 300px;
+      padding: 50px;
+      /*border: 20px solid #0088dd;*/
+
+    }
+    p.example {
+      margin: 10px auto 10px auto;
+      text-align: left;
+
+    }
+
+
+
+
+    /*flex-direction
+flex-wrap
+flex-flow
+justify-content
+align-items
+align-content*/
+
+    /*flex-flow	A shorthand property for flex-direction and flex-wrap*/
+
+    .container {
+      display: flex;
+      /*flex-direction: column;*/
+      /*justify-content: center;*/
+      /*height: 200px;*/
+      align-items: flex-start;
+      /*flex-start stretch  flex-end center s baseline*/
+      flex-wrap: wrap;
+      border: 5px solid #cccccc;
+      align-content: space-around;
+    }
+
+    /*this is perfect center*/
+
+    .flex-container {
+      display: flex;
+      height: 300px;
+      justify-content: center;
+      align-items: center;
+      background-color: #C8C8C8;
+    }
+
+    .row {
+      flex-direction: row;
+      border: 5px solid #cccccc;
+      flex: 1 1 auto;
+
+    }
+
+    .row-form {
+      flex-direction: row;
+      flex: 0 0 auto;
+      width: 50%;
+      justify-content: space-between;
+      align-content: center;
+      align-items: center;
+    }
+
+    textarea {
+      width: 300px;
+    }
+
+    .input-group {
+      /*display: inline;*/
+      /*padding-left: 30px;*/
+      /*justify-content: flex-start;*/
+      align-items: center;
+      align-content: center;
+    }
+
+    .col {
+      /*flex-direction: column;*/
+      border-radius: 8px;
+      padding: 20px;
+      align-content: space-between;
+      width: auto;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .col-md-6 {
+      flex: 0 0 auto;
+      width: 50%;
+    }
+
+
+    /*
+The flex item properties are:
+
+order
+flex-grow
+flex-shrink
+flex-basis
+flex
+align-self*/
+
+    .card-body {
+      flex: 1 1 auto;
+      padding: 1rem 1rem;
+    }
+
+    .flex-item-left {
+      flex: 20%;
+      padding-left: 10px;
+    }
+
+    .flex-item-right {
+      flex: 20%;
+    }
+
+    /* Responsive layout - makes a one column layout instead of a two-column layout */
+    @media (max-width: 700px) {
+
+      .flex-item-right,
+      .flex-item-left {
+        flex: 100%;
+      }
+    }
+
+    ul {
+      margin: 5px auto 5px auto;
+      font-size: 20px;
+      list-style: none;
+    }
+
+    .footer h4 {
+      /*align-items: center;*/
+      text-align: center;
+    }
+
+
+    .container-header {
+      display: flex;
+      height: 60px;
+      justify-content: center;
+      align-items: center;
+      background-color: #C8C8C8;
+    }
+
+    input.three {
+      padding: 10px;
+      width: 400px;
+      /*height:   30px;*/
+      border-radius: 10px;
+    }
+
+    input.search {
+      padding: 10px;
+      width: 700px;
+      /*height:   30px;*/
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px;
+      /*height:   30px;*/
+      border-radius: 10px;
+    }
+
+    button[class="Sinup"]:hover,
+    input[class="Sinup"]:focus {
+      background-color: #111111;
+      border: 1px solid #000;
+      padding: 8px;
+    }
+
+
+    button.Sinup {
+      background-color: #0000DC;
+      width: 60px;
+      border: 1px solid #999;
+      color: white;
+    }
+
+    button.login {
+      /*background-color: #111111;*/
+      border: 1px solid #999;
+      padding: 8px;
+    }
+
+    button[class="login"]:hover,
+    input[class="login"]:focus {
+      background-color: #111111;
+      border: 1px solid #000;
+      padding: 8px;
+    }
+
+    nav {
+      float: left;
+      width: 20%;
+      height: 750px;
+      background-color: #f0f0ff;
+      overflow: hidden;
+    }
+    main {
+      float: left;
+      width: 80%;
+      /*height: 750px;*/
+      overflow: hidden;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+
+    footer {
+      float: left;
+      width: 100%;
+    }
+
+    nav.nav-link {
+      width: 10px;
+      /*padding: 10px;*/
+      align-content: space-between;
+
+    }
+
+    a {
+      /*border-top-left-radius: 80px 50px;*/
+      padding: 10px;
+      text-decoration: none;
+    }
+
+    .header-link {
+      color: #000000;
+    }
+
+    button[a]:hover,
+    input[a]:focus {
+      background-color: #111111;
+      border: 1px solid #000;
+      padding: 8px;
+    }
+
+    p[class~="dog"] {
+      background-color: #111111;
+      box-shadow: 10px 5px 5px red;
+
+    }
+
+    p[attr^"d"] {
+      background-color: #111111;
+      box-shadow: 60px -16px teal;
+    }
+
+
+    p[attr*"do"] {
+      background-color: #111111;
+      box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+    }
+
+    p[attr$"g"] {
+
+      /*Targets any  element with an attribute whose value ends with the letter "g"*/
+      background-color: #111111;
+      box-shadow: inset 5em 1em gold;
+    }
+
+    .icons {
+      background: url('image/email.png');
+      height: 20px;
+      width: 20px;
+      background-repeat: no-repeat;
+      /*display: block;*/
+      /* Other styles here */
+    }
+
+    .custom_icon {
+      /*position: fixed;*/
+      border-radius: 2px;
+      height: 20px;
+      width: 40px;
+      /*line-height: 20px;*/
+      text-decoration: none;
+      text-align: center;
+      /*right: 50px;*/
+      /*bottom: 5px;*/
+      /*z-index: 1030;*/
+    }
+
+    .nav-bar {
+      background-color: inherit;
+    }
+
+    .colopser {
+      /*position: fixed;*/
+      border-radius: 2px;
+      height: 30px;
+      width: 50px;
+      /*line-height: 20px;*/
+      text-decoration: none;
+      text-align: center;
+      float: right;
+      overflow: hidden;
+    }
+
+    nav [class="dog"] {
+
+      display: inline;
+    }
+
+
+    .unhide a {
+      display: none;
+
+    }
+
+    .unhide ul {
+      margin: 0;
+    }
+  </style>
+  <script type="text/javascript">
+    function clopse() {
+
+      var x = document.getElementById('demo');
+      var navb = document.getElementById('nav-bar');
+
+      if (navb.style.width == "10%") {
+        x.style.display = 'block';
+        navb.style.width = "20%"
+        navb.classList.remove("unhide"); // Remove mystyle class from DIV
+        navb.classList.add("dog");
+      } else {
+        navb.classList.remove("dog"); // Remove mystyle class from DIV
+        navb.classList.add("unhide"); // Add newone class to DIV
+        navb.style.width = "10%"
+      }
+
+    }
+  </script>
+  <script src="nav.js"></script>
+</head>
+
+<body>
+  <header class="container-header">
+
+    <h2> Personal Website</h2>
+    <div class="flex-item-left">
+
+
+<!--------------------------------------------------------------->
+      <a class="header-link" href=" ">About </a>               
+      <a class="header-link" href=" ">Product </a> 
+      <a class="header-link"href=" ">Todolist </a>
+<!--------------------------------------------------------------->
+    </div>
+    <input class="search" type="search" name="search" placeholder="search">
+    <!-- <button type="search" class="two"> Search</button> -->
+<a href="#" onclick="showContent('login')"><button class="login"> Login</button></a>
+    
+    <button class="Sinup"> Sinup</button>
+  </header>
+
+  <nav id="nav-bar" class="dog">
+    <div class="nav-bar">clopse <img onclick="clopse()" class="colopser" data-toggle="collapse" data-target="#myNavbar"
+        src='image/colopse.png' />
+    </div>
+    <div class="nav-link" id="demo">
+
+<!----------------------------------------------------------------------------------------------->
+      <div class="col">
+        <ul>
+          <li><img class='custom_icon' src='image/email.png' /> 
+            
+            <a class="dog" href="#" onclick="showContent('home')">Home</a>
+           </li>
+
+
+        </ul>
+      </div>
+      
+      <div class="col">
+        <ul>
+          <li><img class='custom_icon' src='image/email.png' /> <a class="dog" href=" ">Demos </a> </li>
+        </ul>
+      </div>
+      
+      <div class="col">
+        <ul>
+          <li><img class='custom_icon' src='image/email.png' /> <a class="dog" href="#" onclick="showContent('Blog')">Blog </a> </li>
+        </ul>
+      </div>
+      
+      <div class="col">
+        <ul>
+          <li> <img class='custom_icon' src='image/email.png' /><a href=" ">Jobs </a> </li>
+        </ul>
+      </div>
+      
+      <div class="col">
+        <ul>
+          <li><img class='custom_icon' src='image/email.png' /> <a class="dog" href=" ">Contact </a> </li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <ul>
+          <li> <img class='custom_icon' src='image/email.png' /><a href=" ">Support </a> </li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <ul>
+          <li><img class='custom_icon' src='image/email.png' /> <a href=" ">Application </a> </li>
+        </ul>
+      </div>
+<!------------------------------------------------------------------------------------------------------------------>
+    </div>
+
+  </nav>
+
+  <main id="main">
+    <p>Welcome here</p>
+
+    <div class="container">
+      <form>
+        <div class="row-form">
+          Username:<input type="text" name="username">
+        </div>
+        <div class="row-form">
+          Email<input type="email" name="email">
+        </div>
+        <div class="row-form">
+          Comment:<textarea name="comment" rows="6" cols="6"></textarea>
+        </div>
+        <div class="row-form">
+          <button>Send</button>
+        </div>
+      
+      </form>
+
+    </div>
+
+
+    <!-- 
+<h1>Potatoes</h1>
+<p id="intro">There are <i>dozens</i> of different
+<b>potato</b> varieties.</p>
+<p>They are usually described as early, second early
+ and maincrop potatoes.</p> -->
+
+
+
+    <!-- 
+<h2>Fender Stratocaster</h2>
+<p class="one">The Fender Stratocaster or "Strat"
+ is one of the most popular electric guitars of
+ all time, and its design has been copied by many
+ guitar makers. It was designed by Leo... </p>
+<h2>Gibson Les Paul</h2>
+<p class="two">The Gibson Les Paul is a solid body
+ electric guitar that was first sold in 1952.
+ The Les Paul was designed by Ted McCarty... </p>
+
+ <p>Analog synthesizers are often said to have a
+ "warmer" sound than their digital
+ counterparts.</p>
+<p class="example">Analog synthesizers are often
+ said to have a "warmer" sound than their
+ digital counterparts.</p> -->
+
+</main>
+
+
+  <!-- <div class="page"> -->
+
+
+  <footer class="footer ">
+    <!-- <hr class="horizontal "> -->
+    <!-- <h4> Testing version of persanl website</h4> -->
+    <div class="flex-container">
+
+
+      <!-- <div class=" row"> -->
+
+      <div class="col">
+        <h6 class="text-gradient text-primary text-sm">Legal</h6>
+        <ul class="flex-column ms-n3 nav">
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.creative-tim.com/terms" target="_blank">
+              Terms & Conditions
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.creative-tim.com/privacy" target="_blank">
+              Privacy Policy
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.creative-tim.com/license" target="_blank">
+              Licenses (EULA)
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h6 class="text-gradient text-primary text-sm">Legal</h6>
+        <ul class="flex-column ms-n3 nav">
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.creative-tim.com/terms" target="_blank">
+              Terms & Conditions
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.creative-tim.com/privacy" target="_blank">
+              Privacy Policy
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.creative-tim.com/license" target="_blank">
+              Licenses (EULA)
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h6 class="text-gradient text-primary text-sm">Resources</h6>
+        <ul class="flex-column ms-n3 nav">
+          <li class="nav-item">
+            <a class="nav-link" href="https://iradesign.io/" target="_blank">
+              Illustrations
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.creative-tim.com/bits" target="_blank">
+              Bits & Snippets
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.creative-tim.com/affiliates/new" target="_blank">
+              Affiliate Program
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+      <!-- </div> -->
+
+
+
+    </div>
+  </footer>
+
+
+  <!-- </div> -->
+</body>
+
+</html>
+
+
+
